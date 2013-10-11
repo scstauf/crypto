@@ -34,8 +34,8 @@ function generate_hash(file, hash) {
 }
 
 if (process.argv.length === 4) {
-	var file = process.argv[3],
-		hash = process.argv[2];
+	var file = process.argv[3];
+	var hash = process.argv[2];
 	
 	try {
 		generate_hash(file, hash);
