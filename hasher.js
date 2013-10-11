@@ -5,7 +5,7 @@
  *
  * usage:
  *		node hasher.js [digest] [file]		// generate checksum
- *		node hasher.js --digests			// display available algorithms
+ *		node hasher.js --digests		// display available algorithms
  *
  * 11 October 2013
  */
