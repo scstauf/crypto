@@ -38,8 +38,8 @@ int main() {
 }
 
 void display_vigenere_table(char** table) {
-	for (int row = 0; row < 26; row++) {
-		for (int col = 0; col < 26; col++)
+	for (int row = 0; row <= 25; row++) {
+		for (int col = 0; col <= 25; col++)
 			cout << table[row][col] << " ";
 		
 		cout << endl;
@@ -50,7 +50,7 @@ string encrypt(char** table, string plaintext, string key) {
 	string ciphertext("");
 	
 	for (unsigned int i = 0; i < plaintext.length(); i++) {
-		for (int row = 0; row < 26; row++) {
+		for (int row = 0; row <= 25; row++) {
 			if (table[row][0] == plaintext[i]) {
 				ciphertext.push_back(table[row][key[i] - 'A']);
 				break;
@@ -65,9 +65,9 @@ string decrypt(char** table, string ciphertext, string key) {
 	string plaintext("");
 	
 	for (unsigned int i = 0; i < ciphertext.length(); i++) {
-		for (int col = 0; col < 26; col++) {
+		for (int col = 0; col <= 25; col++) {
 			if (table[0][col] == key[i]) {
-				for (int row = 0; row < 26; row++) {
+				for (int row = 0; row <= 25; row++) {
 					if (table[row][col] == ciphertext[i]) {
 						plaintext.push_back(table[row][0]);
 						break;
@@ -84,14 +84,14 @@ char** build_vigenere_table() {
 	string alphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	char** table = new char*[26];
 	
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i <= 25; i++)
 		table[i] = new char[26];
 	
-	for (int row = 0, i = 0; row < 26; row++) {
-		for (int col = 0; col < 26; col++, i++)
+	for (int row = 0, i = 0; row <= 25; row++) {
+		for (int col = 0; col <= 25; col++, i++)
 			table[row][col] = alphabet[i];
 		
-		if (i == 26)
+		if (i == 25)
 			i = 0;
 			
 		alphabet = caesar_shift(alphabet);
